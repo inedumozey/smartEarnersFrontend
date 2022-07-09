@@ -10,8 +10,8 @@ export default function MainLayout({children}){
         <Main>
             {children}
         </Main>
-  
-        <Footer_ />
+{/*   
+        <Footer_ /> */}
         
       </MainLayoutWrapper>
     )

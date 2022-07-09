@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/Image'
 
 export default function ScreenLoader() {
   return (
@@ -13,9 +14,9 @@ export default function ScreenLoader() {
         justifyContent: 'center',
         alignItems: 'center',
         color: '#fff',
-        background: 'rgb(0, 65, 93)'}}>
-
-      <img src={`/logo.png.ico`} alt="" />
+        background: "#134965"}}>
+        <Image src={`/onboadinglogo.png`} width="320" height="250" alt=""/>
+    
   </div>
   )
 }

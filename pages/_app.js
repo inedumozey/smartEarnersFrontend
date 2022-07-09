@@ -32,7 +32,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <title>SmartEarners</title>
-        <link rel="stylesheet" href="/logo.png.ico" />
+        {/* <link rel="stylesheet" href="/logo.png.ico" /> */}
       </Head>
 
       {

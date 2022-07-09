@@ -1,15 +1,18 @@
-import Link from 'next/link'
+
+import Hero from '../components/sections/Hero'
+import OurServices from '../components/sections/OurServices'
+import AboutUs from '../components/sections/AboutUs'
+import SocialProof from '../components/sections/SocialProof'
 
 export default function Home() {
  
   return (
-    <>
-      Home page in main layout
-
-      <Link href="/admin">
-          <a>Go to Admin</a>
-      </Link>
-
-    </>
+  <>
+    <Hero />
+    <OurServices />
+    <AboutUs />
+    <SocialProof />
+  </>
+    
   )
 }

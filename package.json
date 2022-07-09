@@ -9,19 +9,27 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
     "@mozeyinedu/filter": "^1.2.1",
     "@mozeyinedu/hooks-lab": "^3.0.2",
     "@mozeyinedu/mover": "^1.1.1",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/material": "^5.8.7",
     "@reduxjs/toolkit": "^1.8.3",
     "axios": "^0.27.2",
     "babel-plugin-styled-components": "^2.0.7",
     "moment": "^2.29.3",
     "next": "12.2.0",
+    "prop-types": "^15.8.1",
     "react": "18.2.0",
+    "react-avatar": "^5.0.1",
     "react-dom": "18.2.0",
     "react-icons": "^4.4.0",
     "react-redux": "^8.0.2",
-    "styled-components": "^5.3.5"
+    "react-switch": "^7.0.0",
+    "styled-components": "^5.3.5",
+    "swiper": "^8.3.0"
   },
   "repository": {
     "type": "git",
