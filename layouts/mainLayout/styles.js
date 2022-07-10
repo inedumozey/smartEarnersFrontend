@@ -13,15 +13,95 @@ const Footer = styled.footer`
     width: 100%;
     min-height: 150px;
     color: #fff;
-    background: ${({bg})=>bg};
-    padding: 20px;
+    background: linear-gradient(to right, #00415d, #2d0b00);
+    padding: 100px 0 30;
     position: absolute;
     bottom: 0;
+    font-size: 13px;
+    line-height: 20px;
+
+    & .row {
+        width: 85%;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: space-between;
+
+    }
+    & .col {
+        flex-basis: 25%;
+        padding: 10px;
+    }
+    & .logo{
+        width: 80px;
+        margin-bottom: 30px;
+
+    }
+    & .col h3 {
+        width: fit-content;
+        margin-bottom: 40px;
+        position: relative;
+
+    }
+    & .email-id{
+        width: fit-content;
+        border-bottom: 1px solid #ccc;
+        margin: 20px 0;
+    }
+    ul li{
+        list-style: none;
+        margin-bottom: 12px;
+
+    }
+    ul li a {
+        text-decoration: none;
+        color: white;
+    }
+    & form{
+        padding-bottom: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 50px;
+    }
+
+    & form label{
+        font-size: 18px;
+        margin-right: 10px;
+    }
+    & form input{
+        width: 100%;
+        background: transparent;
+        color: #ccc;
+        border: 0;
+        outline: none;
+
+    }
+
+    & form button {
+        background: transparent;
+        border: 0;
+        outline: none;
+        cursor: pointer;
+        color: white;
+    }
+    .social-icons svg{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 40px;
+        margin-right: 15px;
+    }
 `
 
 const Nav = styled.nav`
     width: 100%;
     height: max-content;
+    position: fixed;
+    z-index: 2453;
     color: #fff;
     background: ${({bg})=>bg};
     display: flex;
@@ -65,14 +145,14 @@ const TopNav = styled.div`
     
 `
 const BottomNav = styled.div`
-     background-color:var(--major-color-purest);
+    
      height: max-content;
     
      .bottom-nav-container{
         width: 80%;
         margin: 0 auto;
         display: flex;
-       
+        background-color:linear-gradient(to right, #00415d, #a8bec7);
         justify-content:space-between;
         align-content: center;
 
@@ -86,7 +166,7 @@ const BottomNav = styled.div`
             display: flex;
             align-items: center;
             
-            background: ${({bg})=>bg};
+            /* background: ${({bg})=>bg}; */
         }
         .bottom-nav-tabs{
             display: flex;

@@ -27,6 +27,20 @@ const SocialProofContainer = styled.div`
         }
     & .right {
         background-color: var(--medium-color);
+
+        header {
+            color: var(--white-bg-color);
+        }
+        
+    }
+    & .foursquare {
+        width: 70%;
+        height: 90%;
+        margin: 20px auto;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-evenly ;
+        align-items: space-evenly ;
     }
 `
 

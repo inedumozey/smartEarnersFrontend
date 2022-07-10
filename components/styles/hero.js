@@ -6,7 +6,7 @@ const HeroContainer = styled.div`
     width: 100%;
     background-color: var(--major-color-5A);
     min-height: 60vh;
-    
+   
 
     .hero{
         width: 80%;
@@ -14,7 +14,7 @@ const HeroContainer = styled.div`
         margin: 0 auto;
        
         .left{
-            margin-top: 120px;
+            margin-top: 200px;
             width: 55%;
             text-align: center;
             h3{
@@ -56,6 +56,7 @@ const HeroContainer = styled.div`
             display: flex;
             justify-content: flex-end;
             align-items: center ;
+            margin-top: 200px;
         }
     }
     
