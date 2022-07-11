@@ -8,6 +8,8 @@ import { RiCloseLine} from 'react-icons/ri'
 import { AiTwotoneLock, AiFillEyeInvisible} from 'react-icons/ai'
 import { useSnap } from '@mozeyinedu/hooks-lab'; 
 import { handleSignup } from "./redux/auth";
+import check from "../../utils";
+
 import {
     AuthWrapper,
     Form,
@@ -21,12 +23,16 @@ import {
     Close
 } from "./styles/auth";
 
+
 export const Signup=()=>{
+    check.redirectToDashboard('/dashboard', '/admin');
+
     const dispatch = useDispatch();
     const state = useSelector(state=>state);
     const {auth} = state;
     const [showPassword, setShowPassword] = useState(false)
     const [showCPassword, setShowCPassword] = useState(false);
+
     const [feedback, setFeedback] = useState({
         msg: auth.signin.msg,
         status: false
@@ -40,12 +46,15 @@ export const Signup=()=>{
         password: '',
         cpassword: ''
     }
-    const [inp, setInpt] = useState(intitialState)
+    const [inp, setInpt] = useState(intitialState);
+
+    // get form input
     const getInput =(e)=>{
         const {name, value} = e.target;
         setInpt({...inp, [name]: value })
     }
   
+    // submit form
     const submit =(e)=>{
         e.preventDefault();
 
@@ -54,9 +63,13 @@ export const Signup=()=>{
         setFeedback({
             msg: auth.signin.msg,
             status: true
-        })
+        });
+
+        // empty form input
+        auth.signup.status ? setInpt(intitialState) : setInpt({...inp, password: '', cpassword: ''})
     }
 
+    // handle close feedback msg
     const handleClose =()=>{
         setFeedback({
             msg: '',
@@ -67,6 +80,7 @@ export const Signup=()=>{
     useEffect(()=>{
         // empty form input
         auth.signup.status ? setInpt(intitialState) : setInpt({...inp, password: '', cpassword: ''})
+
    }, [auth.signup.status])
  
     return (

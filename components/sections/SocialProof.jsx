@@ -89,8 +89,8 @@ const SocialProof = () => {
                     autoplay = { {delay: 4000}}
                     pagination = {{ clickable: true}}
                     slidesPerView={1}
-                    onSlideChange={() => console.log('slide change')}
-                    onSwiper={(swiper) => console.log(swiper)}  effect="creative">
+                    onSlideChange={() =>{}}
+                    onSwiper={(swiper) => {}}  effect="creative">
                    
                     { data && data.map((testimony, index) => {
                       return (<SwiperSlide key={index}><Testimony datum={testimony}/></SwiperSlide>)

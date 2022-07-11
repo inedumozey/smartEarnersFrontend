@@ -1,30 +1,4 @@
-import Image from 'next/image'
-import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import EmailIcon from '@mui/icons-material/Email';
-import Link from 'next/link';
-import {useState} from 'react'
-
-
-// const BRAND_COLOR_B = 'rgb(241, 173, 0)';
-const BRAND_COLOR_A = ' #00415D'
-const logo = '/logo.png';
-
-import {
-    Nav,
-    User,
-    UserAction,
-    Dashboard,
-    TopNav,
-    BottomNav
-} from './styles'
-
-export default function Header() {
-    const [loggedIn, setLoggedIn] = useState(false)
-
-return (
-    <Nav bg={BRAND_COLOR_A}>
+<Nav bg={BRAND_COLOR_A}>
         <TopNav>
             <div className='top-nav-container'>
                 <ul>
@@ -49,34 +23,30 @@ return (
                     </span> 
                     <div className="user">
                         {
-                            loggedIn ? 
+                            check.isLoggedIn() ? 
                             (
-                                <Link href='/dashboard' passHref>
-                                    <Dashboard>Dashboard</Dashboard>
-                                </Link>
+                                <>
+                                    <Link href='/dashboard' passHref>
+                                        <Dashboard>Dashboard</Dashboard>
+                                    </Link>
+                                    <Link href='/signin' passHref>
+                                        <UserAction onClick={()=>dispatch(logout())}>Logout</UserAction>
+                                    </Link>
+                                </>
                             ):
                             (
                                 <ul className="bottom-nav-tabs">
                                     <li><Link href='/'>Home</Link></li>
                                     <li><Link href='/user-manual'>How it works</Link></li>
                                     <li><Link href='/contact'>Plans</Link></li>
-                                    <li><Link href='/tc'><button className='signin'>Sign in</button></Link>&nbsp;&nbsp;<Link href='/policy'><button className='signup'>Sign up</button></Link></li>
+
+                                    <li><Link href='/signin'><button className='signin'>Sign in</button></Link>&nbsp;&nbsp;<Link href='/signup'><button className='signup'>Sign up</button></Link></li>
+
                                     <li></li>
                                 </ul>
-                                // <>
-                                //     <Link href='/signup' passHref>
-                                //         <UserAction>Sign Up</UserAction>
-                                //     </Link>
-                                //     <Link href='/signin' passHref>
-                                //         <UserAction>Sign In</UserAction>
-                                //     </Link>
-                                // </>
                             )
                         }
                     </div>
             </div>
         </BottomNav>
     </Nav>
-  )
-}
-

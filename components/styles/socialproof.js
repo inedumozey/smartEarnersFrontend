@@ -7,6 +7,7 @@ const SocialProofContainer = styled.div`
     font-size: 1.1rem;
     display: flex;
     margin: 30px 0;
+    z-index: -1;
 
     & section{
         width: 50%;

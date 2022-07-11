@@ -7,6 +7,8 @@ import { RiCloseLine} from 'react-icons/ri'
 import { AiTwotoneLock, AiFillEyeInvisible} from 'react-icons/ai'
 import { useSnap } from '@mozeyinedu/hooks-lab'; 
 import { handleSignin } from "./redux/auth";
+import check from '../../utils';
+
 import {
     AuthWrapper,
     Form,
@@ -19,28 +21,36 @@ import {
     Success,
     Close
 } from "./styles/auth";
+
+
 export const Signin=()=>{
+    check.redirectToDashboard('/dashboard', '/admin')
+
     const dispatch = useDispatch();
+    const { snap } = useSnap(.5);
     const state = useSelector(state=>state);
     const {auth} = state;
+
     const [showPassword, setShowPassword] = useState(false)
     const [feedback, setFeedback] = useState({
         msg: auth.signin.msg,
         status: false
     });
-    
-    const { snap } = useSnap(.5);
 
     const intitialState = {
         email: '',
         password: '',
     }
+
     const [inp, setInpt] = useState(intitialState)
+
+    // get form input
     const getInput =(e)=>{
         const {name, value} = e.target;
         setInpt({...inp, [name]: value })
     }
   
+    // submit form
     const submit =(e)=>{
         e.preventDefault();
 
@@ -49,15 +59,20 @@ export const Signin=()=>{
         setFeedback({
             msg: auth.signin.msg,
             status: true
-        })
+        });
+
+        // clear form input
+        auth.signin.status ? setInpt(intitialState) : setInpt({...inp, password: ''});
     }
 
+    // handle close feedback msg
     const handleClose =()=>{
         setFeedback({
             msg: '',
             status: false
         })
     }
+
 
     useEffect(()=>{
         // empty form input

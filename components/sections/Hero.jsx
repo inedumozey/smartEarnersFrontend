@@ -1,33 +1,34 @@
 import HeroContainer  from '../styles/hero'
 import Link from 'next/link'
 import Image from 'next/image'
+import { Button,
+    SectionWrapper,
+    Section,
+    SectionTitle,
+    SectionSubTitle,
+    SectionText,
+} from '../../styles/globalStyle'
 
 
 const Hero = () => {
 
     return (
-        <HeroContainer>
-            <div className='hero'>
-            <section className='left'>
-                
-                <h3>Smart Earner Currency</h3>
-                <h6>We Trade it, You Learn & Earn it</h6>
-                <p>SmartEarner is a trustworthy platform that has been in existence for years serving several financial institutions across the world.</p>
+        <SectionWrapper>
+            <Section>
+                <SectionTitle>Smart Earner Currency</SectionTitle>
+                <SectionSubTitle>We Trade it, You Learn & Earn it</SectionSubTitle>
+                <SectionText>
+                    SmartEarner is a trustworthy platform that has been in existence for years serving several financial institutions across the world.
+                </SectionText>
             
-                <button>Invest Now</button>
-            </section>
+                <Button>Invest Now</Button>
+            </Section>
     
-            <section className='right'>
+            <Section>
                     <Image src={"/hero.png"} alt="Hero" width="350" height="250"/>
-            </section>
+            </Section>
     
-            </div>
-    
-            {/* <Link href="/admin">
-                <a>Go to Admin</a>
-            </Link> */}
-    
-        </HeroContainer>
+        </SectionWrapper>
     )
 }
 export default Hero

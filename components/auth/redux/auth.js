@@ -1,5 +1,6 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 import axios from 'axios';
+import Cookies from 'js-cookie';
 import { config} from '../../../config';
 const { BACKEND_BASE_URL} = config;
 
@@ -12,7 +13,12 @@ export const handleSignup = createAsyncThunk(
             return res.data
         }
         catch(err){
-            return rejectWithValue(err.response.data);
+            if(err.response.data){
+                return rejectWithValue({status: false, msg: err.response.data.msg});
+            }
+            else{
+                return rejectWithValue({status: false, msg: err.message});
+            }
         }
     }
 )
@@ -22,18 +28,70 @@ export const handleSignin= createAsyncThunk(
     'auth/signin',
     async(data, {rejectWithValue})=>{
         try{
-            const res = await axios.post(`${BACKEND_BASE_URL}/auth/signin`, data)
+            const res = await axios.post(`${BACKEND_BASE_URL}/auth/signin`, data);
             return res.data
         }
         catch(err){
-            return rejectWithValue(err.response.data);
+            if(err.response.data){
+                return rejectWithValue({status: false, msg: err.response.data.msg});
+            }
+            else{
+                return rejectWithValue({status: false, msg: err.message});
+            }
         }
     }
 )
 
+// logout in action
+export const logout= createAsyncThunk(
+    'auth/logout',
+    async(data, {rejectWithValue})=>{
+        try{
+            const res = await axios.get(`${BACKEND_BASE_URL}/auth/logout`)
+            return res.data
+        }
+        catch(err){
+            if(err.response.data){
+                return rejectWithValue({status: false, msg: err.response.data.msg});
+            }
+            else{
+                return rejectWithValue({status: false, msg: err.message});
+            }
+        }
+    }
+)
+
+// regenerate accesstoken using the refreshtoken in the cookies
+export const generateAccesstoken = createAsyncThunk(
+    'auth/generateAccesstoken',
+    async(arg)=>{
+        try{
+            if(Cookies.get('refreshtoken')){
+                const res= await axios.get(`${BACKEND_BASE_URL}/auth/generate-accesstoken`, {
+                    headers: {
+                        "Authorization": `Bearer ${Cookies.get('refreshtoken')}`
+                    }
+                })
+                return res.data
+            }
+        }
+        catch(err){
+            if(err.response.data){
+                return rejectWithValue({status: false, msg: err.response.data.msg});
+            }
+            else{
+                return rejectWithValue({status: false, msg: err.message});
+            }
+        }
+    }
+)
+
+
+
 const initialState = {
     signup: { isLoading: false, status: false, msg: ''},
-    signin: { isLoading: false, status: false, msg: ''}
+    signin: { isLoading: false, status: false, msg: ''},
+    // authorize: { status: false, type: 'none', msg: '' }
 }
 
 export const authReducer = createSlice({
@@ -70,8 +128,6 @@ export const authReducer = createSlice({
             state.signin.status = payload.status;
             state.signin.msg = payload.msg;
         },
-
-
     }
     
 })

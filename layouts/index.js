@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
-import AdminLayout from "./adminLayout/AdminLayout";
-import UsersLayout from "./usersLayout/UsersLayout";
-import GeneralLayout from "./generalLayout/GeneralLayout";
+import AdminLayout from "./adminLayout/AdminLayout.jsx";
+import UsersLayout from "./usersLayout/UsersLayout.jsx";
+import GeneralLayout from "./generalLayout/GeneralLayout.jsx";
 
 const Layouts =({children})=>{
 

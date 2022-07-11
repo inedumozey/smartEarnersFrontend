@@ -6,15 +6,17 @@ const MainLayoutWrapper = styled.footer`
 `
 
 const Main = styled.main`
-    width: 100%;
+    width: 100vw;
+    margin: auto;
+    border: 10px solid red;
     padding-bottom: 170px;
 `
 const Footer = styled.footer`
-    width: 100%;
+    // width: 98vw;
     min-height: 150px;
     color: #fff;
     background: linear-gradient(to right, #00415d, #2d0b00);
-    padding: 100px 0 30;
+    // padding: 100px 0 30;
     position: absolute;
     bottom: 0;
     font-size: 13px;
@@ -97,22 +99,9 @@ const Footer = styled.footer`
     }
 `
 
-const Nav = styled.nav`
-    width: 100%;
-    height: max-content;
-    position: fixed;
-    z-index: 2453;
-    color: #fff;
-    background: ${({bg})=>bg};
-    display: flex;
-    flex-direction:column;
-    justify-content: center;
-    font-size: .9rem; 
-`
-
 const TopNav = styled.div`
     background-color:var(--light-color);
-    width: 100%;
+    // width: 100%;
     height: 50px;
     display: flex;
     justify-content: space-between;
@@ -197,18 +186,17 @@ const BottomNav = styled.div`
      }
 
 `
-
+const Logo = styled.div`
+    width: 50px;
+    height: ${headerHeight};
+    cursor: pointer
+`
 
 const User = styled.div`
-   
-    
-     /*font-size: 0.95rem;
+    font-size: 0.95rem;
     justify-content: space-between;
-   
     border-radius: 15px;
-    padding: 0 3px; */
-
-    
+    padding: 0 3px; */    
 `
 
 const UserAction = styled.a`
@@ -220,11 +208,12 @@ const Dashboard = styled.a`
 `
 
 export {
-    Nav,
+    // Nav,
     Main,
     Footer,
     MainLayoutWrapper,
     User,
+    Logo,
     UserAction,
     Dashboard,
     TopNav,

@@ -7,6 +7,7 @@ const AboutUsContainer = styled.div`
     display: flex;
     justify-content: start ;
     align-items: start ;
+    z-index: -1;
 
     & .left{
         /* display: relative ; */

@@ -73,15 +73,15 @@ const Plans = () => {
     <PlansContainer>
         <header>Find a Plan to Power your Finance</header>
         <p>We have ranges of plans to fit your pocket size, choose one now</p>
-        <section className="meso-layer">
+        <section className="meso-layer" style={{zIndex: '-1'}}>
                 <Swiper className="swiper"
                     modules={[Navigation, EffectFade, Autoplay, Pagination, Scrollbar, A11y]}
                     spaceBetween={10}
                     autoplay = { {delay: 7000}}
                     pagination = {{ clickable: true}}
                     slidesPerView={3}
-                    onSlideChange={() => console.log('slide change')}
-                    onSwiper={(swiper) => console.log(swiper)}>
+                    onSlideChange={() => {}}
+                    onSwiper={(swiper) =>{} }>
                    
                     { plans && plans.map((plan, index) => {
                       return (<SwiperSlide key={index}><PlansCard datum={plan} color={plan.color}/></SwiperSlide>)

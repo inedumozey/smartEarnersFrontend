@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Footer } from './styles';
+import { Footer } from '../mainLayout/styles';
 import DraftsIcon from '@mui/icons-material/Drafts';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import FacebookIcon from '@mui/icons-material/Facebook';
