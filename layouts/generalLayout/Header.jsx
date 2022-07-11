@@ -1,8 +1,4 @@
 import Image from 'next/image'
-import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import EmailIcon from '@mui/icons-material/Email';
 import Link from 'next/link';
 import {useState, useEffect} from 'react'
 import { useDispatch } from 'react-redux';
@@ -10,31 +6,23 @@ import { logout } from '../../components/auth/redux/auth';
 import {useRouter} from 'next/router';
 import { MdClose, MdMenu} from 'react-icons/md';
 import check from '../../utils/';
-import { ToggleMenu } from '../../styles/globalStyle'
-import { Router } from '@mui/icons-material';
+import { ToggleMenu, CopyRight } from '../../styles/globalStyle'
 import MobileMenu_ from '../../components/Mobile/MobileMenu';
-import { flexbox } from '@mui/system';
-import { mobileAndTabletCheck } from '../../utils/userAgent';
-
 const logo = '/onboadinglogo.png';
-
 import {
     TopNav,
     MidNav,
     MobileMenuRow1,
     MobileMenuRow2,
     MobileMenuRow3,
-} from '../mainLayout/headerStyles'
+} from './headerStyles'
 
-
-;
 
 export default function Header_() {
     const dispatch = useDispatch()
     const [stick, setStick] = useState(false)
     const router = useRouter()
     const [showMenu, setShowMenu] = useState(false)
-
 
     useEffect(()=>{
         window.onscroll=(e)=>{
@@ -91,14 +79,6 @@ export default function Header_() {
             dsc: 'lorem ipson',
         }
     ]
-
-    useEffect(()=>{
-        for(let navLink of navLinks){
-            if(navLink === router.asPath){
-                console.log(navLink)
-            }
-        }
-    }, )
 
     return (
         <>
@@ -290,9 +270,9 @@ export default function Header_() {
                             }
                         </div>
                     </div>
-                    <div className="copyright">
+                    <CopyRight className="copyright">
                         &copy; {new Date().getFullYear() > 2022 ? '2021 - ' + new Date().getFullYear() : 2022} Smart Earners
-                    </div>
+                    </CopyRight>
                 </MobileMenuRow3>
             </div>
         </MobileMenu_>

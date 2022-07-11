@@ -1,7 +1,7 @@
 import { style } from "@mui/system";
 import styled, {createGlobalStyle, css} from "styled-components";
-const LIGHT_THEM = '#fff'
-const DARK_THEM = '#000'
+const LIGHT_THEME = '#fff'
+const DARK_THEME = '#000'
 
 const ScrollBar = ()=> css`
   &::-webkit-scrollbar-thumb {
@@ -56,7 +56,7 @@ const GlobalStyle = createGlobalStyle`
 
   body{
     transition: background .3s ease-in;
-    background: ${({toggleState})=>toggleState ? LIGHT_THEM : DARK_THEM};
+    background: ${({toggleState})=>toggleState ? LIGHT_THEME : DARK_THEME};
     color: ${({toggleState})=>toggleState ? "#000" : "#fff"};
     position: relative;
     min-height: 100vh;
@@ -74,6 +74,7 @@ const GlobalStyle = createGlobalStyle`
 const Header = styled.div`
   width: 100%;
   height: ${({headerHeight})=>headerHeight};
+  margin-bottom: 50px;
 `
 const Main = styled.div`
   width: 100%;
@@ -82,6 +83,7 @@ const Main = styled.div`
 const Footer = styled.div`
   width: 100%;
   min-height: ${({footerHeight})=>footerHeight};
+  margin-top: 100px;
 `
 
 const MobileMenu = styled.div`
@@ -124,7 +126,9 @@ const ToggleMenu = styled.div`
     width: 40px;
     height: 40px;
     color: #aaa;
+    border: 1px solid #aaa;
     cursor: pointer;
+    display: flex;
     align-items: center;
     justify-content: center;
     font-size: 2rem;
@@ -210,6 +214,68 @@ const MainLayoutStyle = styled.div`
 `
 
 
+const GlobalFooter = styled.footer`
+    background: linear-gradient(to bottom, #000000, #191b1e, #181717, #000000);
+    
+    .top{
+        display: grid;
+        grid-template-columns: repeat( auto-fit, minmax(250px, 1fr));
+        color: #ccc;
+        font-size: .9rem;
+
+
+        & .col {
+            min-height: 100px;
+            margin: 10px;
+            min-width: 150px;
+            display: flex;
+            text-align: center;
+            flex-direction: column;
+            padding: 10px;
+            align-items: center;
+            border: 1px solid var(--major-color-30A);
+
+            & .imgDiv{
+                width: 100px;
+                margin-top: 10px;
+            }
+
+            h3 {
+                margin-bottom: 5px;
+                color: var(--major-color-deep);
+                position: relative;
+            }
+
+            ul {
+                color: blue;
+
+                a {
+                    margin: 4px;
+                    font-size: .9rem;
+                    &:hover{
+                        color: #c30
+                    }
+                }
+            }
+        }
+    }
+    
+    .bottom {
+        width: 100%;
+        background: var(--major-color-purest);
+        text-align: center;
+        color: #aaa;
+        padding: 10px;
+    }
+`
+
+const CopyRight = styled.div`
+  height: 30%;
+  font-size: .8rem;
+  text-align: center;
+  color: #aaa
+`
+
 
 
 
@@ -228,5 +294,7 @@ export {GlobalStyle,
   SectionSubTitle,
   SectionText,
   MainLayoutStyle,
-  ScrollBar
+  ScrollBar,
+  CopyRight,
+  GlobalFooter
 };

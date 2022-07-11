@@ -1,6 +1,7 @@
 import Cookies from 'js-cookie'
 import check from '../../utils'
-import { Main, Header, Footer } from '../../styles/globalStyle'
+import { Main, Header, Footer } from '../../styles/globalStyle';
+import GlobalFooter_ from '../GlobalFooter';
 
 
 export default function AdminLayout({children}) {
@@ -31,7 +32,7 @@ export default function AdminLayout({children}) {
     </Main>
 
     <Footer footerHeight='50px'>
-      footer
+      <GlobalFooter_ />
     </Footer>
       
     </>

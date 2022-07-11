@@ -1,6 +1,7 @@
 import Cookies from 'js-cookie'
 import check from '../../utils'
 import { Main, Header, Footer } from '../../styles/globalStyle'
+import GlobalFooter_ from '../GlobalFooter';
 
 
 export default function DashboardLayout({children}) {
@@ -30,7 +31,7 @@ export default function DashboardLayout({children}) {
     </Main>
 
     <Footer footerHeight='50px'>
-      footer
+      <GlobalFooter_ />
     </Footer>
       
     </>

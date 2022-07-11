@@ -2,21 +2,6 @@ import styled from "styled-components";
 import { ScrollBar } from "../../styles/globalStyle";
 
 
-// --major-color-purest : #00415D;
-//     --major-color-30A: #00415D30;
-//     --major-subtitle: #00415D98;
-//     --major-color-5A: #00415D05;
-//     --major-color : #134965
-    
-//     --minor-color : #F0F4F5;
-//     --bright-color : #F1AD00;
-//     --medium-color: #A8BEC7;
-//     --light-color: #F5F5F5;
-//     --gray-color: #B6BFC3;
-//     --white-bg-color: #ffffff;
-// --major-color-faded: #00415d9c;
-//     --BRAND_COLOR_B: rgb(241, 173, 0);
-
 const TopNav = styled.nav`
 
     width: 100%;
@@ -311,12 +296,7 @@ const MobileMenuRow3 = styled.div`
         }
 
     }
-    .copyright {
-        height: 30%;
-        font-size: .8rem;
-        text-align: center;
-        color: #aaa
-    }
+    
 `
 
 
