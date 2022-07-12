@@ -2,16 +2,44 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useDispatch } from 'react-redux';
 import { logout } from '../components/auth/redux/auth';
+import { useRouter } from 'next/router';
 import check from '../utils'
 import { GlobalFooter, CopyRight } from '../styles/globalStyle';
-import DraftsIcon from '@mui/icons-material/Drafts';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import InstagramIcon from '@mui/icons-material/Instagram';
 
 export default function GlobalFooter_() {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+    const router = useRouter()
+
+    const navLinks =[
+      {
+          link: 'Home',
+          url: '/'
+      },
+      {
+          link: 'About Us',
+          url: '/about-us'
+      },
+      {
+          link: 'Contact Us',
+          url: '/contact-us'
+      },
+      {
+          link: 'How it Works',
+          url: '/user-manual'
+      },
+      {
+          link: 'Terms and Conditions',
+          url: '/tc'
+      },
+      {
+          link: 'Privacy Policy',
+          url: '/policy'
+      },
+      {
+          link: 'FAQ',
+          url: '/faq'
+      },
+  ]
 
     return (
       <GlobalFooter>
@@ -46,27 +74,31 @@ export default function GlobalFooter_() {
           
           <div className="col">
             <ul>
-                <Link href="/" passHref><a>Home</a></Link>
-                <Link href="/about-us" passHref><a>About Us</a></Link>
-                <Link href="/contact-us" passHref><a>Contact Us</a></Link>
-                <Link href="/user-manual" passHref><a>How it works</a></Link>
-                <Link href="/tc" passHref><a>Terms and Conditions</a></Link>
-                <Link href="/privacy" passHref>Policy Privacy</Link>
-                <Link href="/faq" passHref><a>FAQ</a></Link>
-                <Link href="/" passHref><a>Plans</a></Link>
               {
-                
+                navLinks.map((link, i)=>{
+                  return (
+                    <Link href={link.url} passHref>
+                        <a style={{display: 'inline-block'}}>
+                            <div style={{display: 'inline-block'}} className={link.url === router.asPath ? 'active link' : 'link'}>{link.link}
+                            </div>
+                        </a>
+                    </Link>
+                  )
+                })
+              }
+    
+              {
                 check.isLoggedIn() ? 
                 (
                   <>
-                    <li><Link href="/dashboard" passHref><a>Dashboard</a></Link></li>
-                    <li><Link href="/signin" passHref><a onClick={()=>dispatch(logout())}>Logout</a></Link></li>
+                    <Link href="/dashboard" passHref><a>Dashboard</a></Link>
+                    <Link href="/signin" passHref><a onClick={()=>dispatch(logout())}>Logout</a></Link>
                   </>
                 ): 
                 (
                   <>
-                    <li><Link href="/signup" passHref><a>Sign Up</a></Link></li>
-                    <li><Link href="/signin" passHref><a>Sigin In</a></Link></li>
+                    <Link href="/signup" passHref><a>Sign Up</a></Link>
+                    <Link href="/signin" passHref><a>Sigin In</a></Link>
                   </>
                 )
               }

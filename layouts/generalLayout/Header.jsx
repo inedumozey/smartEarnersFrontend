@@ -6,7 +6,7 @@ import { logout } from '../../components/auth/redux/auth';
 import {useRouter} from 'next/router';
 import { MdClose, MdMenu} from 'react-icons/md';
 import check from '../../utils/';
-import { ToggleMenu, CopyRight } from '../../styles/globalStyle'
+import { ToggleMenu, CopyRight, MovingInfoWrapper } from '../../styles/globalStyle'
 import MobileMenu_ from '../../components/Mobile/MobileMenu';
 const logo = '/onboadinglogo.png';
 import {
@@ -23,6 +23,11 @@ export default function Header_() {
     const [stick, setStick] = useState(false)
     const router = useRouter()
     const [showMenu, setShowMenu] = useState(false)
+
+    const closeMenu =(e)=>{
+        e.stopPropagation();
+        setShowMenu(false)
+    }
 
     useEffect(()=>{
         window.onscroll=(e)=>{
@@ -212,9 +217,13 @@ export default function Header_() {
                     )
                 }
             </div>
-            <marquee className="bottom-mid-nav">
-                hello
-            </marquee>
+            
+            <div className="bottom-mid-nav" >
+                <marquee behavior="smooth" direction="">
+                    <span>Welcome to SmartEarners Investment, </span><span style={{color: 'gold'}}>hello</span>
+                </marquee>
+            </div>
+            
         </MidNav>
        
         <MobileMenu_ showMenu={showMenu} setShowMenu={setShowMenu}>
@@ -234,7 +243,7 @@ export default function Header_() {
                             return (
                                 <div key={i}>
                                     <Link href={link.url} passHref>
-                                        <a>
+                                        <a  onClick={closeMenu}>
                                             <div className={link.url === router.asPath ? 'active link' : 'link'}>{link.link}</div>
                                         </a>
                                     </Link>

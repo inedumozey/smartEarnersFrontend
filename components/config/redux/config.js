@@ -25,7 +25,7 @@ export const getConfig= createAsyncThunk(
 
 
 const initialState = {
-    config: { isLoading: true, status: false, msg: '', data: {}},
+    config: { isLoading: false, status: false, msg: '', data: {}},
     // authorize: { status: false, type: 'none', msg: '' }
 }
 

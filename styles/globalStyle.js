@@ -60,8 +60,44 @@ const GlobalStyle = createGlobalStyle`
     color: ${({toggleState})=>toggleState ? "#000" : "#fff"};
     position: relative;
     min-height: 100vh;
+    overflow-x: hidden;
+    color: var(--major-color-purest);
 
     ${ScrollBar()}
+
+    .swiper-button-next, .swiper-button-prev {
+      color: var(--major-color-purest);
+    };
+
+  a {
+      display: block;
+      font-size: .9rem !important;
+      
+      &:hover {
+          opacity:.6
+      }
+  };
+  
+  .link {
+      padding: 0;
+      border: none;
+      color: #fff;
+  }
+  .active {
+      position: relative;
+      display: inline-block;
+
+      &:before {
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          bottom: -2px;
+          content: '';
+          width: 100%;
+          height: 2px; 
+          background: var(--bright-color);
+      } 
+  };
 
   }
 
@@ -74,7 +110,7 @@ const GlobalStyle = createGlobalStyle`
 const Header = styled.div`
   width: 100%;
   height: ${({headerHeight})=>headerHeight};
-  margin-bottom: 50px;
+  margin-bottom: 10px;
 `
 const Main = styled.div`
   width: 100%;
@@ -83,43 +119,7 @@ const Main = styled.div`
 const Footer = styled.div`
   width: 100%;
   min-height: ${({footerHeight})=>footerHeight};
-  margin-top: 100px;
-`
-
-const MobileMenu = styled.div`
-    background: rgba(0,0,0,.6);
-    z-index: 1000000000;
-    transition: all .6s;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    opacity: ${({show})=>show ? 1 : 0};
-    visibility: ${({show})=>show ? 'visible' : 'hidden'};
-
-    @media (min-width: 920px){
-      display: none;
-  }
-`
-
-const MobileMenuContainer = styled.div`
-    background: var(--major-color-purest);
-    transition: all .5s;
-    transform: translateX(${({show})=>show ? 0 : '-150%'});
-    position: fixed;
-    top: ${({top})=>top};
-    bottom: 0;
-    width: ${({width})=>width};
-    left: 0;
-
-    .content{
-      transition: all .4s;
-      opacity: ${({show})=>show ? 1 : 0};
-      visibility: ${({show})=>show ? 'visible' : 'hidden'};
-      width: 100%;
-      height: 100%;
-    }
+  margin-top: 30px;
 `
 
 const ToggleMenu = styled.div`
@@ -149,13 +149,13 @@ const ToggleBtn = styled.div`
   background: ${({toggleState})=>toggleState ? '#000' : '#fff'}
 `
 const SectionWrapper = styled.div`
-  width: 100vw;
-  min-height: 60vh;
+  width: 95%;
+  min-height: 40vh;
   display: flex;
   margin: 0 auto;
   justify-content: space-between;
 
-  @media (max-width: 920px){
+  @media (max-width: 800px){
       flex-direction: column;
       align-items: space-between;
   }
@@ -163,50 +163,36 @@ const SectionWrapper = styled.div`
 
 const Section = styled.section`
   min-width: 300px;
-  padding: 10px 20px;
-  border: 1px solid red;
+  padding: 20px;
+  text-align: center;
 `
-const SectionTitle = styled.h2`
-  
+const SectionTitle = styled.h1`
+  font-size: 2rem;
+  margin: 10px;
+  color: var(--major-color-purest);
 `
 const SectionSubTitle = styled.h4`
-  
+  color: var(--major-subtitle);
+  font-size: 1.2rem;
 `
 const SectionText= styled.div`
+  line-height: 2rem;
   
 `
 
-const Button = styled.div`
-  border-radius: 20px;
-  padding: 5px 20px;
-  color: var(--major-color-purest);
-  background: var(--bright-color);
+const Button = styled.button`
+  border-radius: 25px;
   cursor: pointer;
-  position: relative;
-  overflow: hidden;
   text-align: center;
-
-  // &:before: {
-  //   background: #c30;
-  //   z-index: -1;
-  //   transition: all 0.6s ease;
-  //   width: 100%;
-  //   height: 0%;
-  //   position: absolute;
-  //   top: 50%;
-  //   left: 50%;
-  //   transform: transalate(-50%; -50%) rotate(45deg);
-  // }
-
-  // &:hover:before {
-  //   height: 500%;
-
-  // }
-
-  // &:hover {
-  //   color: #fff;
-  // }
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border: none;
+  color: var(--major-color-purest);
+  font-weight: 600;
+  background: var(--bright-color);
+  box-shadow: 1px 1px 2px #aaa, -1px -1px 2px #aaa;
 `
+
 
 const MainLayoutStyle = styled.div`
   width: 100vw;
@@ -276,8 +262,26 @@ const CopyRight = styled.div`
   color: #aaa
 `
 
+const MovingInfoWrapper = styled.div`
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    animation: slide 6s infinite;
 
+    @keyframes slide {
+      0%{
+        left: 100%
+      }
 
+      100%{
+        left: -100%
+      }
+    }
+`
+const LandCard = styled.div`
+    
+`
 
 export {GlobalStyle,
   ToggleBtn,
@@ -286,9 +290,7 @@ export {GlobalStyle,
   Main,
   Footer,
   Button,
-  MobileMenu,
   ToggleMenu,
-  MobileMenuContainer,
   Section,
   SectionTitle,
   SectionSubTitle,
@@ -296,5 +298,7 @@ export {GlobalStyle,
   MainLayoutStyle,
   ScrollBar,
   CopyRight,
-  GlobalFooter
+  GlobalFooter,
+  MovingInfoWrapper,
+  LandCard
 };

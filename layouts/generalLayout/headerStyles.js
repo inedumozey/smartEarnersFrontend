@@ -71,14 +71,10 @@ const TopNav = styled.nav`
 const MidNav = styled.nav`
     width: 100%;
     height: 70px;
-    z-index: 1;
+    z-index: 1000;
     position: ${({stick})=>stick ? 'fixed' : ''};
     top: ${({stick})=>stick ? 0 : ''};
     
-    .active {
-        color: red;
-    }
-
     .top-mid-nav{
         height: 45px;
         padding: 0 30px;
@@ -181,8 +177,8 @@ const MidNav = styled.nav`
     .bottom-mid-nav {
         height 25px;
         padding: 0 20px;
+        color: #fff;
         text-align: center;
-        color: red;
         box-shadow: 2px 2px 5px #000;
         background: var(--major-color-faded);
     }
@@ -207,19 +203,15 @@ const MobileMenuRow2 = styled.div`
     height: calc(100% - 165px - 70px);
     overflow-y: auto;
     background: var(--major-color-deep);
-
-    .active {
-        color: red;
-    }
     
     ${ScrollBar()}
 
     .navLink {
-        padding-right: 20px;
 
         a {
             display: block;
             width: 100%;
+            padding: 5px;
         }
 
         .link {
@@ -244,11 +236,9 @@ const MobileMenuRow2 = styled.div`
         };
 
         div {
-            margin-top: 10px;
-            padding: 8px 20px;
+            padding: 5px 8px;
             display: block;
             color: #fff;
-            border-bottom: 1px solid #aaa;
             font-size: .9rem !important;
             
             &:hover {

@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
 import { MdClose, MdMenu} from 'react-icons/md'
-import { MobileMenuContainer, MobileMenu, ToggleMenu } from '../../styles/globalStyle'
+import { MobileMenuContainer, MobileMenu } from './styles'
+import { ToggleMenu } from '../../styles/globalStyle'
+
 
 export default function MobileMenu_({showMenu, setShowMenu, children}) {
 
