@@ -110,7 +110,6 @@ const GlobalStyle = createGlobalStyle`
 const Header = styled.div`
   width: 100%;
   height: ${({headerHeight})=>headerHeight};
-  margin-bottom: 10px;
 `
 const Main = styled.div`
   width: 100%;
@@ -119,7 +118,6 @@ const Main = styled.div`
 const Footer = styled.div`
   width: 100%;
   min-height: ${({footerHeight})=>footerHeight};
-  margin-top: 30px;
 `
 
 const ToggleMenu = styled.div`
@@ -144,15 +142,14 @@ const ToggleBtn = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  z-index: 1000;
+  z-index: 2000;
   border-radius: 5px;
   background: ${({toggleState})=>toggleState ? '#000' : '#fff'}
 `
 const SectionWrapper = styled.div`
-  width: 95%;
-  min-height: 40vh;
+  width: 100%;
   display: flex;
-  margin: 0 auto;
+  margin: 0 auto 50px auto;
   justify-content: space-between;
 
   @media (max-width: 800px){
@@ -162,9 +159,9 @@ const SectionWrapper = styled.div`
 `
 
 const Section = styled.section`
-  min-width: 300px;
   padding: 20px;
   text-align: center;
+  margin: auto;
 `
 const SectionTitle = styled.h1`
   font-size: 2rem;

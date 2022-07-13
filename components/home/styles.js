@@ -13,11 +13,11 @@ import {
 const HeroSectionWrapper = styled(SectionWrapper)`
     background: ${({bg})=>bg};
     padding: 30px 0;
+    min-height: ${({type})=>type=='hero' ? '90vh' : 'auto'}
     
 `
-const HeroSection = styled(Section)`
+const HeroSection = styled(Section)``
 
-`
 const HeroSectionTitle = styled(SectionTitle)`
     span {
         color: var(--bright-color)
@@ -28,12 +28,20 @@ const HeroSectionSubTitle = styled(SectionSubTitle)`
 `
 const HeroSectionText = styled(SectionText)`
     padding: 20px;
+    margin: 10px 0;
     text-align: center;
     font-size: 1.1rem;
 
 `
 const HeroButton = styled(Button)`
-    margin: 50px;
+    margin-top: 100px;
+    margin-bottom: 30px;
+
+
+    &:hover{
+        color: #fff;
+    }
+    
 `
 
 const CardWrapper = styled.div`
@@ -42,11 +50,10 @@ const CardWrapper = styled.div`
     justify-content: center;
     align-items: center;
 
-
 `
 const LandscapeCard = styled.div`
     width: 300px;
-    height: 250px;
+    height: 270px;
     background: ${({bg})=>bg};
     margin: 15px;
     box-shadow: 2px 2px 3px #aaa, -2px -2px 3px #aaa;
@@ -56,6 +63,13 @@ const LandscapeCard = styled.div`
     justify-content: center;
     align-items: center;
 `
+
+const ImageCard = styled.div`
+    width: 200px;
+    height: 150px;
+    margin: 15px;
+`
+
 const ServiceSectionWrapper = styled(SectionWrapper)`
     flex-direction: column;
 `
@@ -65,7 +79,6 @@ const SwipeWrapper = styled.div`
     min-width: 300px;
     display: flex;
     justify-content: center;
-    z-index: -1;
 
     .swiper{
         width: 100%;
@@ -98,5 +111,6 @@ export {
     CardWrapper,
     LandscapeCard,
     ServiceSectionWrapper,
-    SwipeWrapper
+    SwipeWrapper,
+    ImageCard
 }

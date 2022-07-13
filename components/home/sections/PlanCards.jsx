@@ -17,23 +17,29 @@ import { useRouter } from 'next/router';
 const Card = styled.div`
     height: 400px;
     display: flex;
-    cursor: pointer;
     justify-content: center;
     flex-direction: column;
-    color: ${({color})=>color};
+    color: #fff;
+    z-index: 200303;
     align-items: center;
+    user-select: none;
+    --webkit-user-select: none;
     background: ${({bg})=>bg};
 `
 const Btn = styled(Button)`
-  cursor: pointer
+  box-shadow: 2px 2px 3px #fff, -2px -2px 3px #fff;
+  &:hover{
+    color: #fff;
+
 `
-const bg = [
-  '#00415D',
-  '#00415D30',
-  '#03212ce',
-  '#00415D98',
-  '#00415d9c'
+const bg=[
+  '#F1AD00',
+  '#7da0af',
+  '#F1AD00',
+  '#7da0af',
+  '#00415D30'
 ]
+
 
 export default function PlanCards({data, i}) {
   const {snap} = useSnap(.5)
@@ -79,13 +85,11 @@ export default function PlanCards({data, i}) {
     }
  }
 
- console.log(i)
-
   return (
-    <Card onClick={()=>check.isLoggedIn ? router.push(`/dashboard/investment/${data.id}`) : router.push('/signin')} bg={bg[i]} color={bg[bg.length - i]}>
+    <Card bg={bg[i]} color={bg[bg.length - i]}>
       <FortIcon />
 
-      <HeroSectionTitle>{data.type}</HeroSectionTitle>
+      <HeroSectionTitle>{data.type.toUpperCase()}</HeroSectionTitle>
 
       <HeroSectionSubTitle>
         <span>{data.amount}</span>{" "}<span>{data.currency}</span>
@@ -93,9 +97,9 @@ export default function PlanCards({data, i}) {
 
       <HeroSectionSubTitle>{data.returnPercentage}% ROI</HeroSectionSubTitle>
 
-      <HeroSectionText>{resolveLifespan(data.lifespan)}</HeroSectionText>
+      <HeroSectionText style={{fontWeight: '500'}}>{resolveLifespan(data.lifespan)}</HeroSectionText>
   
-      <Btn>INVEST</Btn>
+      <Btn {...snap()} onClick={()=>check.isLoggedIn() ? router.push(`/dashboard/investment/${data.id}`) : router.push('/signin')}>INVEST</Btn>
     </Card>
   )
 }

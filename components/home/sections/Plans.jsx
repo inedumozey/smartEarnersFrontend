@@ -35,72 +35,69 @@ const Plans = () => {
             <HeroSectionTitle>Investment Plans</HeroSectionTitle>
             <HeroSectionSubTitle>Find the Package Plan that is Convinient for you</HeroSectionSubTitle>
         </HeroSection>
-
-        <SwipeWrapper>
-            {
-                (state.plans && isLoading) ? 
+        
+        {
+            (state.plans && isLoading) ? 
+            (
+                <div>Loading...</div>
+            ) :
+            (
+                data && data.length < 1 ? 
                 (
-                    <div>Loading...</div>
-                ) :
+                    <div style={{textAlign: 'center'}}>No Plan currently available</div>
+                ):
                 (
-                    data && data.length < 1 ? 
-                    (
-                        'No Plan currently available'
-                    ):
-                    (
-                        <>
-                        <Swiper
-                            className='swiper'
-                            modules={[Navigation, Pagination, Scrollbar, Autoplay, A11y]}
-                            spaceBetween={10}
-                            navigation
-                            loop
-                            autoplay = { {delay: 7000}}
-                            scrollbar={{draggable: true}}
-                            pagination = {{ clickable: true}}
-                            slidesPerView={3}
-                            breakpoints={
-                                {
-                                    0:{
-                                        width: 0,
-                                        slidesPerView: 1,
-                                        spaceBetween: 5
-                                    },
-                                    500:{
-                                        width: 500,
-                                        slidesPerView: 2,
-                                        spaceBetween: 5
-                                    },
-                                    680:{
-                                        width: 680,
-                                        slidesPerView: 3,
-                                        spaceBetween: 5
-                                    },
-                                    920:{
-                                        width: 920,
-                                        slidesPerView: 3,
-                                        spaceBetween: 5
-                                    },
-                                
-                                }
-                            }>
-                            {       
-                                data.map((data, i)=>{
-                                    return (
-                                        <div key={i}>
-                                            <SwiperSlide>
-                                                <PlanCards data={data} i={i}/>
-                                            </SwiperSlide>
-                                        </div>
-                                    )
-                                })
+                <SwipeWrapper>
+                    <Swiper
+                        className='swiper'
+                        modules={[Navigation, Pagination, Scrollbar, Autoplay, A11y]}
+                        spaceBetween={10}
+                        autoplay = { {delay: 7000}}
+                        scrollbar={{draggable: true}}
+                        pagination = {{ clickable: true}}
+                        slidesPerView={3}
+                        breakpoints={
+                            {
+                                0:{
+                                    width: 0,
+                                    slidesPerView: 1,
+                                    spaceBetween: 5
+                                },
+                                500:{
+                                    width: 500,
+                                    slidesPerView: 2,
+                                    spaceBetween: 5
+                                },
+                                680:{
+                                    width: 680,
+                                    slidesPerView: 3,
+                                    spaceBetween: 5
+                                },
+                                920:{
+                                    width: 920,
+                                    slidesPerView: 3,
+                                    spaceBetween: 5
+                                },
+                            
                             }
-                        </Swiper>
-                        </>
-                    )
+                        }>
+                        {       
+                            data.map((data, i)=>{
+                                return (
+                                    <div key={data._id}>
+                                        <SwiperSlide>
+                                            <PlanCards data={data} i={i}/>
+                                        </SwiperSlide>
+                                    </div>
+                                )
+                            })
+                        }
+                    </Swiper>
+                </SwipeWrapper>
                 )
-            }
-        </SwipeWrapper>   
+            )
+        }
+          
     </ServiceSectionWrapper>
   )
 }

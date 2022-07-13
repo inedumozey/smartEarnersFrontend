@@ -9,6 +9,8 @@ import check from '../../utils/';
 import { ToggleMenu, CopyRight, MovingInfoWrapper } from '../../styles/globalStyle'
 import MobileMenu_ from '../../components/Mobile/MobileMenu';
 const logo = '/onboadinglogo.png';
+import NavBtn_ from './NavBtn';
+
 import {
     TopNav,
     MidNav,
@@ -41,10 +43,6 @@ export default function Header_() {
             url: '/'
         },
         {
-            link: 'About Us',
-            url: '/about-us'
-        },
-        {
             link: 'Contact Us',
             url: '/contact-us'
         },
@@ -53,7 +51,7 @@ export default function Header_() {
             url: '/user-manual'
         },
         {
-            link: 'Terms and Conditions',
+            link: 'Terms',
             url: '/tc'
         },
         {
@@ -64,25 +62,6 @@ export default function Header_() {
             link: 'FAQ',
             url: '/faq'
         },
-    ]
-
-    const slidingItems = [
-        {
-            title: 'Title one',
-            dsc: 'lorem ipson',
-        },
-        {
-            title: 'Title two',
-            dsc: 'lorem ipson',
-        },
-        {
-            title: 'Title three',
-            dsc: 'lorem ipson',
-        },
-        {
-            title: 'Title four',
-            dsc: 'lorem ipson',
-        }
     ]
 
     return (
@@ -114,33 +93,8 @@ export default function Header_() {
             } 
 
             {/* signup, signup, logout and dashboard btns*/}
-            {
-                stick ? '' :
-                (
-                    <div className="nav-btn">
-                        {
-                            check.isLoggedIn() ? 
-                            (
-                                <>
-                                    <Link href='/signin' passHref>
-                                        <a onClick={dispatch(logout())} className='signup' >Logout</a>
-                                    </Link>
-                                </>
-                            ):
-                            (
-                                <>
-                                    <Link href='/signup' passHref>
-                                        <a className='signup'>Sign Up</a>
-                                    </Link>
-                                    <Link href='/signin' passHref>
-                                        <a className='signin'>Sign in</a>
-                                    </Link>
-                                </>
-                            )
-                        }
-                    </div>
-                )
-            }
+
+            { stick ? '' : <NavBtn_ stick={stick} /> }
             
         </TopNav>
 
@@ -189,38 +143,13 @@ export default function Header_() {
                     </div>
                 </div>
                 {/* signup, signup, logout and dashboard btns for sticky menu*/}
-                {
-                    !stick ? '' :
-                    (
-                        <div className="nav-btn">
-                            {
-                                check.isLoggedIn() ? 
-                                (
-                                    <>
-                                        <Link href='/signin' passHref>
-                                            <a onClick={dispatch(logout())} className='signup' >Logout</a>
-                                        </Link>
-                                    </>
-                                ):
-                                (
-                                    <>
-                                        <Link href='/signup' passHref>
-                                            <a className='signup'>Sign Up</a>
-                                        </Link>
-                                        <Link href='/signin' passHref>
-                                            <a className='signin'>Sign in</a>
-                                        </Link>
-                                    </>
-                                )
-                            }
-                        </div>
-                    )
-                }
+
+                { !stick ? '' : <NavBtn_ stick={stick} /> }
             </div>
             
             <div className="bottom-mid-nav" >
-                <marquee behavior="smooth" direction="">
-                    <span>Welcome to SmartEarners Investment, </span><span style={{color: 'gold'}}>hello</span>
+                <marquee behavior="smooth" direction="" style={{fontSize: '.8rem'}}>
+                <span style={{color: 'gold'}}>Hello! </span><span>--- Welcome to SmartEarners Investment. --- </span><span style={{color: 'gold'}}>We Trade it, You Learn & Earn it</span>
                 </marquee>
             </div>
             
@@ -255,29 +184,8 @@ export default function Header_() {
                 </MobileMenuRow2>
 
                 <MobileMenuRow3>
-                    <div className="nav">
-                        <div className="nav-btn">
-                            {
-                                check.isLoggedIn() ? 
-                                (
-                                    <>
-                                        <Link href='/signin' passHref>
-                                            <a onClick={dispatch(logout())} className='signup' >Logout</a>
-                                        </Link>
-                                    </>
-                                ):
-                                (
-                                    <>
-                                        <Link href='/signup' passHref>
-                                            <a className='signup'>Sign Up</a>
-                                        </Link>
-                                        <Link href='/signin' passHref>
-                                            <a className='signin'>Sign in</a>
-                                        </Link>
-                                    </>
-                                )
-                            }
-                        </div>
+                    <div style={{color: '#fff', background: 'gild'}} className="nav">
+                        <NavBtn_ location={'mobileView'}/>
                     </div>
                     <CopyRight className="copyright">
                         &copy; {new Date().getFullYear() > 2022 ? '2021 - ' + new Date().getFullYear() : 2022} Smart Earners

@@ -41,31 +41,6 @@ const TopNav = styled.nav`
             transform: translateX(-50%)
         }
     };
-
-    .nav-btn {
-        border-radius: 20px;
-        padding: 10px;
-        position: absolute;
-        right: 30px;
-        background: var(--bright-color);
-
-        @media (max-width: 920px){
-            display: none
-        };
-
-        a {
-            font-weight: bold;
-            padding: 5px;
-
-            &: hover {
-                opacity: .5
-            }
-        };
-
-        .signup {
-            color: var(--major-color-purest)
-        }
-    }
 `
 
 const MidNav = styled.nav`
@@ -147,30 +122,6 @@ const MidNav = styled.nav`
                 display: none
             };
         };
-
-        .nav-btn {
-            border-radius: 20px;
-            padding: 10px;
-            height: 40px;
-            background: var(--bright-color);;
-        
-            @media (max-width: 920px){
-                display: none
-            };
-
-            a {
-                font-weight: bold;
-                padding: 5px;
-        
-                &: hover {
-                    opacity: .5
-                }
-            };
-        
-            .signup {
-                color: var(--major-color-purest);
-            };
-        }
         
     };
 
@@ -184,6 +135,49 @@ const MidNav = styled.nav`
     }
       
 `
+const NavBtn = styled.div`
+    display: flex; 
+    position: ${({stick})=>stick ? 'static' : 'absolute'};
+    right: ${({stick})=>stick ? '' : '20px'};
+    color: #fff;
+
+    .nav-btn {
+        margin: 10px 5px;
+        color: var(--bright-color);
+
+        &:hover{
+            opacity: .4
+        }
+    }
+
+    @media (max-width: 920px){
+        display: ${({location})=>location == 'mobileView' ? 'flex' : 'none'}
+    };
+
+    a {
+        font-weight: bold;
+        padding: 5px;
+        
+
+        &: hover {
+            opacity: .5
+        }
+    };
+
+    .logout {
+        color: #832607;
+        padding: 5px;
+    };
+
+    .dashboard {
+        background: var(--bright-color);
+        border-radius: 5px;
+        padding: 5px;
+        color: var(--major-color-purest);
+        font-size: 3rem;
+    };
+`
+
 const MobileMenuRow1 = styled.div`
     height: 165px;
     border-bottom: 1px solid var( --bright-color);
@@ -251,43 +245,21 @@ const MobileMenuRow2 = styled.div`
 `
 const MobileMenuRow3 = styled.div`
     height: 70px;
-    border-top: 1px solid var( --bright-color);
 
-    #active {
-        color: red;
-    };
 
     .nav {
         height: 70%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        .nav-btn {
-            border-radius: 20px;
-            padding: 10px;
-            display: inline-block;
-            color: #fff;
-            height: 40px;
-            background: var(--bright-color);
-
-            a {
-                font-weight: bold;
-                padding: 5px;
-        
-                &: hover {
-                    opacity: .5
-                }
-            };
-        
-            .signup {
-                color: var(--major-color-purest);
-            };
-        }
-
+        background: teal;
+        color: #fff;
     }
     
 `
+const MobileNavBtn = styled.div`
+    display: flex;
+    justify-content: space-around;
+    align-items: center
+`
+
 
 
 export {
@@ -296,4 +268,6 @@ export {
     MobileMenuRow1,
     MobileMenuRow2,
     MobileMenuRow3,
+    NavBtn,
+    MobileNavBtn,
 }

@@ -45,8 +45,14 @@ export const plansReducer = createSlice({
         },
         [getPlans.rejected]: (state, {payload})=>{
             state.plans.isLoading = false;
-            state.plans.status = payload.status;
-            state.plans.msg = payload.msg;
+            if(payload){
+                state.plans.status = payload.status;
+                state.plans.msg = payload.msg;
+            }else{
+                // to get rid of next js server error
+                state.plans.status = false;
+                state.plans.msg = 'Error occured';
+            }
         },    
     }
     

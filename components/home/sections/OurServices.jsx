@@ -2,9 +2,7 @@ import React from 'react'
 import CurrencyBitcoinIcon from '@mui/icons-material/CurrencyBitcoin';
 import SavingsIcon from '@mui/icons-material/Savings';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
-// import InvincibleCard from './subsections/InvincibleCard'
-// import OurServicesContainer from '../styles'
-import { HeroButton,
+import {
   ServiceSectionWrapper,
   HeroSection,
   HeroSectionTitle,
@@ -19,22 +17,22 @@ const data = [
         id: 1,
         embled: <CurrencyBitcoinIcon fontSize='large'/>,
         title: "Crypto Integration",
-        description: "We facilitate buying and selling of cryptocurrency",
+        description: "Easier and Conventioanl way to fund and withdraw fromyour Account",
         bg: '#00415D05'
     },
     {
         id: 2,
         embled: <MonetizationOnIcon fontSize='large' />,
-        title: "Native Currency SEC",
-        description: "We facilitate buying and selling of cryptocurrency",
+        title: "Savings and Inbvestment",
+        description: "Easy Forex Solution for Everyone to Make subsequent income while we trade the market",
         bg: '#00415D30'
     },
     {
 
         id: 3,
         embled: <SavingsIcon fontSize='large'/>,
-        title: "Savings & Investment",
-        description: "We facilitate buying and selling of cryptocurrency",
+        title: "Safe and Secure",
+        description: "Our Servers is fully protected from attacks. we use one of the most experienced, trusted protection and mitigation system",
         bg: '#00415D05'
     }
 ]
@@ -43,7 +41,6 @@ const OurServices = () => {
       <ServiceSectionWrapper>
         <HeroSection>
           <HeroSectionTitle>Our Services</HeroSectionTitle>
-          <HeroSectionSubTitle>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, nisi!</HeroSectionSubTitle>
         </HeroSection>
 
         <HeroSection>
@@ -53,14 +50,14 @@ const OurServices = () => {
                   return (
                     <LandscapeCard key={i} bg={item.bg}>
                       <HeroSectionSubTitle style={{color: '#F1AD00'}}>
-                          {item.embled}
-                        </HeroSectionSubTitle>
-                        <HeroSectionSubTitle>
-                          {item.title}
-                        </HeroSectionSubTitle>
-                        <HeroSectionText>
-                          {item.description}
-                        </HeroSectionText>
+                        {item.embled}
+                      </HeroSectionSubTitle>
+                      <HeroSectionSubTitle>
+                        {item.title.toUpperCase()}
+                      </HeroSectionSubTitle>
+                      <HeroSectionText>
+                        {item.description}
+                      </HeroSectionText>
                     </LandscapeCard>
                   )
                 })

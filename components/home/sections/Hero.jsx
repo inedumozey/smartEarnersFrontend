@@ -1,33 +1,36 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import {useSnap} from '@mozeyinedu/hooks-lab'
+import {useRouter} from 'next/router'
+
 import {
     HeroSectionWrapper,
     HeroSection,
+    HeroButton,
     HeroSectionTitle,
     HeroSectionSubTitle,
     HeroSectionText,
 } from '../styles'
-import { Button } from '@mui/material'
 
 
 const Hero = () => {
     const {snap} = useSnap(.5)
+    const router = useRouter()
 
     return (
-        <HeroSectionWrapper bg='#00415D30'>
-            <HeroSection>
+        <HeroSectionWrapper type='hero' bg='#00415D30'>
+            <HeroSection padd="pad">
+
                 <HeroSectionTitle>SmartEarners' <span>Investment</span></HeroSectionTitle>
+
                 <HeroSectionSubTitle>We Trade it, You Learn & Earn it</HeroSectionSubTitle>
+
                 <HeroSectionText>
                     SmartEarner is a trustworthy platform that has been in existence for years serving several financial institutions across the world.
                 </HeroSectionText>
             
-                <Link href="/">
-                    <a {...snap()}>
-                        <Button>Invest Now</Button>
-                    </a>
-                </Link>
+                <HeroButton {...snap()} onClick={()=>check.isLoggedIn() ? router.push(`/dashboard/investment/${data.id}`) : router.push('/signin')} >INVEST NOW</HeroButton>
+
             </HeroSection>
     
             <HeroSection>

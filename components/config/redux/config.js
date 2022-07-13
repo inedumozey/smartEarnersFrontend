@@ -44,9 +44,15 @@ export const configReducer = createSlice({
             state.config.data = {...state.config.data, ...payload.data}
         },
         [getConfig.rejected]: (state, {payload})=>{
-            state.config.isLoading = false;
-            state.config.status = payload.status;
-            state.config.msg = payload.msg;
+            state.plans.isLoading = false;
+            if(payload){
+                state.plans.status = payload.status;
+                state.plans.msg = payload.msg;
+            }else{
+                // to get rid of next js server error
+                state.plans.status = false;
+                state.plans.msg = 'Error occured';
+            }
         },    
     }
     

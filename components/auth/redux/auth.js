@@ -108,9 +108,16 @@ export const authReducer = createSlice({
             state.signup.msg = payload.msg;
         },
         [handleSignup.rejected]: (state, {payload})=>{
-            state.signup.isLoading = false;
-            state.signup.status = payload.status;
-            state.signup.msg = payload.msg;
+            state.plans.isLoading = false;
+            if(payload){
+                state.plans.status = payload.status;
+                state.plans.msg = payload.msg;
+                
+            }else{
+                // to get rid of next js server error
+                state.plans.status = false;
+                state.plans.msg = 'Error occured';
+            }
         },
 
 
@@ -124,9 +131,16 @@ export const authReducer = createSlice({
             state.signin.msg = payload.msg;
         },
         [handleSignin.rejected]: (state, {payload})=>{
-            state.signin.isLoading = false;
-            state.signin.status = payload.status;
-            state.signin.msg = payload.msg;
+            state.plans.isLoading = false;
+            if(payload){
+                state.plans.status = payload.status;
+                state.plans.msg = payload.msg;
+
+            }else{
+                // to get rid of next js server error
+                state.plans.status = false;
+                state.plans.msg = 'Error occured';
+            }
         },
     }
     
