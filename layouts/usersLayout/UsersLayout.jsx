@@ -11,7 +11,7 @@ export default function DashboardLayout({children}) {
        <Header_ />
       </Header>
 
-      <Main height={{headerHeight: '150px', footerHeight: '50px'}}>
+      <Main height={{headerHeight: '60px', footerHeight: '50px'}}>
         {children}
       </Main>
 

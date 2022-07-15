@@ -58,7 +58,7 @@ function MyApp({ Component, pageProps }) {
         <MdLightMode style={{color: toggleState ? '#fff' : '#000'}} />
       </ToggleBtn>
       
-      <Layouts>
+      <Layouts toggleState={toggleState}>
           <Component {...pageProps} />
       </Layouts>
 
@@ -72,7 +72,7 @@ function MyApp({ Component, pageProps }) {
               <MdLightMode style={{color: toggleState ? '#fff' : '#000'}} />
             </ToggleBtn>
             
-            <Layouts>
+            <Layouts toggleState={toggleState}>
                 <Component {...pageProps} />
             </Layouts>
           </>

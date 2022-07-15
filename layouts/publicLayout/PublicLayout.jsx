@@ -11,7 +11,7 @@ export default function PublicLayout({children}) {
         <Header_ />
       </Header>
 
-      <Main height={{headerHeight: '120px', footerHeight: '50px'}}>
+      <Main height={{headerHeight: '200px', footerHeight: '50px'}}>
         {children}
       </Main>
 

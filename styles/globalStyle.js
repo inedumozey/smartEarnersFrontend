@@ -29,6 +29,8 @@ const GlobalStyle = createGlobalStyle`
 
   :root{
     --major-color-purest : #00415D;
+    --dark-theme: #000;
+    --light-theme: #fff;
     --major-color-30A: #00415D30;
     --major-color-deep: #03212e;
     --major-subtitle: #00415D98;
@@ -58,8 +60,7 @@ const GlobalStyle = createGlobalStyle`
 
   body{
     transition: background .3s ease-in;
-    background: ${({toggleState})=>toggleState ? LIGHT_THEME : DARK_THEME};
-    color: ${({toggleState})=>toggleState ? "#000" : "#fff"};
+    background: ${({toggleState})=>toggleState ? 'var(--light-theme)' : 'var(--dark-theme)'};
     position: relative;
     min-height: 100vh;
     overflow-x: hidden;
@@ -88,6 +89,14 @@ const GlobalStyle = createGlobalStyle`
 
   .active-icon{
     border: 2px solid var(--bright-color)
+  }
+
+  // side menu active link
+  .side-menu-active-link{
+    color: var(--bright-color);
+  }
+  .side-menu-active-icon{
+    border: 2px solid var(--bright-color);
   }
 
   .active-link {

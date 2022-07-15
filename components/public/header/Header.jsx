@@ -6,6 +6,12 @@ import { MdClose, MdMenu} from 'react-icons/md';
 import { ToggleMenu } from '../../../styles/globalStyle'
 import NavAuthBtn from './NavAuthBtn'
 import SideMenu from '../sideMenu/SideMenu';
+import HomeIcon from '@mui/icons-material/Home';
+import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
+import LocalPoliceIcon from '@mui/icons-material/LocalPolice';
+import BalanceIcon from '@mui/icons-material/Balance';
+import HelpIcon from '@mui/icons-material/Help';
 
 const logo = '/onboadinglogo.png';
 import {
@@ -27,27 +33,33 @@ export default function Header_() {
     const navLinks =[
         {
             link: 'Home',
-            url: '/'
+            url: '/',
+            icon: <HomeIcon />
         },
         {
             link: 'Contact Us',
-            url: '/contact-us'
+            url: '/contact-us',
+            icon: <PermContactCalendarIcon />
         },
         {
             link: 'How it Works',
-            url: '/user-manual'
+            url: '/user-manual',
+            icon: <MenuBookIcon />
         },
         {
             link: 'Terms',
-            url: '/tc'
+            url: '/tc',
+            icon: <LocalPoliceIcon />
         },
         {
             link: 'Privacy Policy',
-            url: '/policy'
+            url: '/policy',
+            icon: <BalanceIcon />
         },
         {
             link: 'FAQ',
-            url: '/faq'
+            url: '/faq',
+            icon: <HelpIcon />
         },
     ]
 

@@ -29,40 +29,31 @@ const SideMenuRow2 = styled.div`
             display: block;
             width: 100%;
             padding: 5px;
-        }
-
-        .link {
-            padding: 0;
-            border: none;
+            display: flex;
+            align-items: flex-end;
+            font-size: 1.2rm;
+            margin-bottom: 5px;
             color: #fff;
-        }
-        .active {
-            position: relative;
-            display: inline-block;
 
-            &:before {
-                position: absolute;
-                left: 50%;
-                transform: translateX(-50%);
-                bottom: -2px;
-                content: '';
-                width: 100%;
-                height: 2px; 
-                background: var(--bright-color);
-            } 
-        };
-
-        div {
-            padding: 5px 8px;
-            display: block;
-            color: #fff;
-            font-size: .9rem !important;
-            
-            &:hover {
-                opacity:.6
+            div {
+                padding: 5px 8px;
+                display: block;
+                font-size: 1rem;
+                
+                &:hover {
+                    opacity:.6
+                }
             }
 
-            
+            .icon{
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                padding: 18px;
+                align-items: center;
+            }
         }
     }
 `

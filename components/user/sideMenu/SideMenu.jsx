@@ -37,8 +37,13 @@ export default function SideMenu({navLinks, showMenu, setShowMenu}) {
                                 return (
                                     <div key={i}>
                                         <Link href={link.url} passHref>
-                                            <a  onClick={closeMenu}>
-                                                <div className={link.url === router.asPath ? 'active link' : 'link'}>{link.link}</div>
+                                            <a onClick={closeMenu}>
+                                                <div className={link.url === router.asPath ? 'side-menu-active-icon icon' : 'icon'}>
+                                                    {link.icon}
+                                                </div>
+                                                <div className={link.url === router.asPath ? 'side-menu-active-link link' : 'link'}>
+                                                    {link.link}
+                                                </div>
                                             </a>
                                         </Link>
                                     </div>

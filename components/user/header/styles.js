@@ -21,10 +21,10 @@ const Header = styled.div`
     }
 
     .current-page-name {
-        height: 100%;
         display: flex;
         padding: 0 5px;
-        border-bottom: 3px solid var(--bright-color);
+        border-radius: 20px;
+        border-bottom: 3px solid #ccc;
         color: var(--bright-color);
         justify-content: space-between;
         align-items: center;

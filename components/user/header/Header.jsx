@@ -23,11 +23,14 @@ export default function Header_() {
     const router = useRouter()
     const [showMenu, setShowMenu] = useState(false)
     const [isMobile, setIsMobile] = useState(false)
-    const [activeP, setActiveP] = useState(false)
     const [currentPageName, setCurrentPageName] = useState({
         link: 'Profile',
         url: '/dashboard'
     },)
+
+    useEffect(()=>{
+        setIsMobile(mobileAndTabletCheck(window))
+    }, [])
 
     const getCurrentPagename= ()=>{
         navLinks.find(link=>{
@@ -36,17 +39,8 @@ export default function Header_() {
             }
         })
     }
-
-    useEffect(()=>{
-        setIsMobile(mobileAndTabletCheck(window))
-    }, [])
     
     useEffect(()=>{
-        if(router.asPath === '/dashboard'){
-            setActiveP(true)
-        }else{
-            setActiveP(false)
-        }
         getCurrentPagename()
 
     }, [router])
@@ -59,32 +53,34 @@ export default function Header_() {
 
     const navLinks =[
         {
-            link: 'Home',
-            url: '/'
-        },
-        {
             link: 'Deposit',
-            url: '/dashboard/deposit'
+            url: '/dashboard/deposit',
+            icon: <SavingsIcon />
         },
         {
             link: 'Withdrawals',
-            url: '/dashboard/withdrawals'
+            url: '/dashboard/withdrawals',
+            icon: <CreditScoreIcon />
         },
         {
             link: 'Transfer',
-            url: '/dashboard/transfer'
+            url: '/dashboard/transfer',
+            icon: <CurrencyExchangeIcon />
         },
         {
             link: 'Transactions',
-            url: '/dashboard/transactions'
+            url: '/dashboard/transactions',
+            icon: <PaidIcon />
         },
         {
             link: 'Referral',
-            url: '/dashboard/referrals'
+            url: '/dashboard/referrals',
+            icon: <PeopleAltIcon />
         },
         {
             link: 'Profile',
-            url: '/dashboard'
+            url: '/dashboard',
+            icon: <PersonIcon />
         },
     ]
 
@@ -128,7 +124,7 @@ export default function Header_() {
         {/* Check viewing browser */}
 
         {
-            !isMobile ?
+            isMobile ?
             (
                 // mobile view
                 <>
@@ -224,7 +220,6 @@ export default function Header_() {
                             <ToggleMenu onClick={()=>setShowMenu(!showMenu)} className="togglemenu-wrapper">
                                 {
                                     showMenu ? <MdClose className='togglemenu'/> : <MdMenu className='togglemenu'/>
-                                    
                                 }
                             </ToggleMenu>
                         </div>
