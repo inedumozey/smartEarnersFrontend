@@ -165,7 +165,7 @@ export default function StatAndTestimony() {
                                 
                                 {selectedTestimonials.data.map(data => {
                                     return (
-                                        <SwiperSlide key={data.id}>
+                                        <SwiperSlide key={data._id}>
                                             <Card_1 data={data}/>
                                         </SwiperSlide>
                                     )

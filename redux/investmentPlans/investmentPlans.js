@@ -10,6 +10,7 @@ export const getPlans= createAsyncThunk(
         try{
             const res = await axios.get(`${BACKEND_BASE_URL}/investment/get-all-plans`)
             return res.data
+            
         }
         catch(err){
             if(err.response.data){

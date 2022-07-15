@@ -1,7 +1,8 @@
-import React from 'react'
-import { useSelector } from "react-redux";
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from "react-redux";
 import {Swiper, SwiperSlide } from 'swiper/react';
 import PlanCards from './PlanCards.jsx';
+import { getPlans } from '../../../redux/investmentPlans/investmentPlans.js';
 
 import SwiperCore, {
     Navigation,
@@ -26,11 +27,16 @@ import {
     SwipeWrapper
 } from './styles'
 
+
 const Plans = () => {
+    const dispatch = useDispatch()
     const state = useSelector(state=>state);
     const {plans} = state.plans;
-    console.log(state)
+    // console.log(plans)
   
+    useEffect(()=>{
+        dispatch(getPlans())
+    }, [])
 
   return (
     <ServiceSectionWrapper bg=''>
@@ -60,6 +66,7 @@ const Plans = () => {
                         modules={[Navigation, Pagination, Scrollbar, Autoplay, A11y]}
                         spaceBetween={10}
                         autoplay = { {delay: 7000}}
+                        loop
                         scrollbar={{draggable: true}}
                         pagination = {{ clickable: true}}
                         slidesPerView={3}

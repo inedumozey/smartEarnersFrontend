@@ -53,6 +53,11 @@ export default function Header_() {
 
     const navLinks =[
         {
+            link: 'Profile',
+            url: '/dashboard',
+            icon: <PersonIcon />
+        },
+        {
             link: 'Deposit',
             url: '/dashboard/deposit',
             icon: <SavingsIcon />
@@ -76,16 +81,16 @@ export default function Header_() {
             link: 'Referral',
             url: '/dashboard/referrals',
             icon: <PeopleAltIcon />
-        },
-        {
-            link: 'Profile',
-            url: '/dashboard',
-            icon: <PersonIcon />
-        },
+        }
     ]
 
     const bottomNavLinks =[
         {
+            link: 'Profile',
+            url: '/dashboard',
+            icon: <PersonIcon />
+        },
+        {
             link: 'Deposit',
             url: '/dashboard/deposit',
             icon: <SavingsIcon />
@@ -109,12 +114,7 @@ export default function Header_() {
             link: 'Referral',
             url: '/dashboard/referrals',
             icon: <PeopleAltIcon />
-        },
-        {
-            link: 'Profile',
-            url: '/dashboard',
-            icon: <PersonIcon />
-        },
+        }
     ]
 
 

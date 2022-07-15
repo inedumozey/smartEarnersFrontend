@@ -32,11 +32,12 @@ const Btn = styled(Button)`
 
 `
 const bg=[
-  '#F1AD00',
+  '#9ea36d',
   '#7da0af',
-  '#F1AD00',
+  '##8ad5d1',
   '#7da0af',
-  '#00415D30'
+  '#00415D30',
+  '#00467D30'
 ]
 
 
