@@ -1,10 +1,6 @@
-import { Signin } from '../components/auth/Signin';
+import { Signin } from "../components/public/auth/Signin.jsx"
 
 export default function signin() {  
 
-  return (
-    <>
-      <Signin />
-    </>
-  )
+  return <Signin />
 }

@@ -1,14 +1,12 @@
 import { useRouter } from 'next/router';
 import AdminLayout from "./adminLayout/AdminLayout.jsx";
 import UsersLayout from "./usersLayout/UsersLayout.jsx";
-import GeneralLayout from "./generalLayout/GeneralLayout.jsx";
+import PublicLayout from "./publicLayout/PublicLayout.jsx";
 
 const Layouts =({children})=>{
-
-    const router = useRouter()
-    
+    const router = useRouter();
     const path = router.pathname;
-    
+
     if(path.includes('dashboard')){
       return <UsersLayout>{children}</UsersLayout>
     }
@@ -18,7 +16,7 @@ const Layouts =({children})=>{
     }
 
     else{
-      return <GeneralLayout>{children}</GeneralLayout>
+      return <PublicLayout>{children}</PublicLayout>
     }
 }
 

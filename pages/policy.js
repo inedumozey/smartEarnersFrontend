@@ -1,7 +1,5 @@
-
+import Policy from "../components/public/policy/Policy"
 
 export default function policy() {
-  return (
-    <div>policy page in main layout</div>
-  )
+  return <Policy />
 }

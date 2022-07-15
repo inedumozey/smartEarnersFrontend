@@ -1,39 +1,23 @@
-import Cookies from 'js-cookie'
-import check from '../../utils'
 import { Main, Header, Footer } from '../../styles/globalStyle'
-import GlobalFooter_ from '../GlobalFooter';
+import GlobalFooter_ from '../../components/globalFooter/GlobalFooter';
+import Header_ from '../../components/user/header/Header';
 
 
 export default function DashboardLayout({children}) {
-  // check.redirectIfNotLoggedIn('/signin')
 
   return (
     <>
-    {
-        Cookies.get('type') === 'admin' ?
-        (
-          <div style={{color: 'red', padding: '5px', border: '1px solid gold'}}>{Cookies.get('type')}
-          </div>
-        ):
-        (
-          <div style={{color: 'red', padding: '5px', border: '1px solid gold'}}>Your Account is {Cookies.get('type')}
-          </div>
-        )
+      <Header headerHeight="60px">
+       <Header_ />
+      </Header>
 
-    }
+      <Main height={{headerHeight: '150px', footerHeight: '50px'}}>
+        {children}
+      </Main>
 
-    <Header headerHeight="150px">
-      Header
-    </Header>
-
-    <Main height={{headerHeight: '150px', footerHeight: '50px'}}>
-      {children}
-    </Main>
-
-    <Footer footerHeight='50px'>
-      <GlobalFooter_ />
-    </Footer>
-      
+      <Footer footerHeight='50px'>
+        <GlobalFooter_ />
+      </Footer>
     </>
   )
 }

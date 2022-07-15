@@ -1,7 +1,5 @@
-import React from 'react'
+import VerifyAccount from "../components/public/auth/VerifyAccount.jsx"
 
 export default function verifyAccount() {
-  return (
-    <div>Verify account page in main layout</div>
-  )
+  return <VerifyAccount />
 }

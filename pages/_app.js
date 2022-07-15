@@ -12,13 +12,15 @@ axios.defaults.withCredentials = true;
 import {resolveApi} from '../utils/resolveApi'
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css'
-import Preloader from '../loaders/Preloader'
+import Preloader from '../loaders/Preloader';
 
 function MyApp({ Component, pageProps }) {
+
   resolveApi.generateAccesstoken()
+  
   const router = useRouter()
   const { toggle, toggleState } = useToggle(); 
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
 
   const handleChangeStart =(url)=> {
       NProgress.start()

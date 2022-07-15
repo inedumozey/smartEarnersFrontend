@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
-import {config} from '../config'
-const {BACKEND_BASE_URL} = config;
+import { BACKEND_BASE_URL } from './config';
+
 
 const resolveApi = {
     generateAccesstoken: ()=>{

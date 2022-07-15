@@ -1,7 +1,5 @@
-import React from 'react'
+import Tc from "../components/public/tc/Tc.jsx"
 
 export default function tc() {
-  return (
-    <div>terms and condition page in main layout</div>
-  )
+  return <Tc />
 }

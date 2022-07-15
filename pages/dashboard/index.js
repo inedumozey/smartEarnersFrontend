@@ -1,7 +1,5 @@
-import React from 'react'
+import Index from "../../components/user/home/Index"
 
 export default function index() {
-  return (
-    <div>Dashboard Home page</div>
-  )
+  return <Index />
 }

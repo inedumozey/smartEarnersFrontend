@@ -1,7 +1,5 @@
-import React from 'react'
+import ResetPasswordRequest from "../components/public/auth/ResetPasswordRequest.jsx"
 
 export default function resetPasswordReq() {
-  return (
-    <div>Reset password request page in main layout</div>
-  )
+  return <ResetPasswordRequest />
 }

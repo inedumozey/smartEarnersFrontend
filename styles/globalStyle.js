@@ -33,7 +33,9 @@ const GlobalStyle = createGlobalStyle`
     --major-color-deep: #03212e;
     --major-subtitle: #00415D98;
     --major-color-5A: #00415D05;
-    --major-color : #134965
+    --major-color : #134965;
+
+    --bottom-nav-color : #d9d9d9;
     
     --minor-color : #F0F4F5;
     --bright-color : #F1AD00;
@@ -83,6 +85,15 @@ const GlobalStyle = createGlobalStyle`
       border: none;
       color: #fff;
   }
+
+  .active-icon{
+    border: 2px solid var(--bright-color)
+  }
+
+  .active-link {
+    color: var(--bright-color)
+  }
+  
   .active {
       position: relative;
       display: inline-block;
@@ -121,10 +132,9 @@ const Footer = styled.div`
 `
 
 const ToggleMenu = styled.div`
-    width: 40px;
+    width: 30px;
     height: 40px;
     color: #aaa;
-    border: 1px solid #aaa;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -136,8 +146,8 @@ const ToggleBtn = styled.div`
   position: fixed;
   width:17px;
   height:17px;
-  right: 0;
-  top: o;
+  right: 5px;
+  top: 5px;
   display:flex;
   justify-content: center;
   align-items: center;
@@ -196,69 +206,6 @@ const MainLayoutStyle = styled.div`
   height: 100vh;
 `
 
-
-const GlobalFooter = styled.footer`
-    background: linear-gradient(to bottom, #000000, #191b1e, #181717, #000000);
-    
-    .top{
-        display: grid;
-        grid-template-columns: repeat( auto-fit, minmax(250px, 1fr));
-        color: #ccc;
-        font-size: .9rem;
-
-
-        & .col {
-            min-height: 100px;
-            margin: 10px;
-            min-width: 150px;
-            display: flex;
-            text-align: center;
-            flex-direction: column;
-            padding: 10px;
-            align-items: center;
-            border: 1px solid var(--major-color-30A);
-
-            & .imgDiv{
-                width: 100px;
-                margin-top: 10px;
-            }
-
-            h3 {
-                margin-bottom: 5px;
-                color: var(--major-color-deep);
-                position: relative;
-            }
-
-            ul {
-                color: blue;
-
-                a {
-                    margin: 4px;
-                    font-size: .9rem;
-                    &:hover{
-                        color: #c30
-                    }
-                }
-            }
-        }
-    }
-    
-    .bottom {
-        width: 100%;
-        background: var(--major-color-purest);
-        text-align: center;
-        color: #aaa;
-        padding: 10px;
-    }
-`
-
-const CopyRight = styled.div`
-  height: 30%;
-  font-size: .8rem;
-  text-align: center;
-  color: #aaa
-`
-
 const MovingInfoWrapper = styled.div`
     width: 100%;
     height: 100%;
@@ -279,8 +226,15 @@ const MovingInfoWrapper = styled.div`
 const LandCard = styled.div`
     
 `
+const CopyRight = styled.div`
+  height: 30%;
+  font-size: .8rem;
+  text-align: center;
+  color: #aaa
+`
 
-export {GlobalStyle,
+export {
+  GlobalStyle,
   ToggleBtn,
   SectionWrapper,
   Header,
@@ -294,8 +248,7 @@ export {GlobalStyle,
   SectionText,
   MainLayoutStyle,
   ScrollBar,
-  CopyRight,
-  GlobalFooter,
   MovingInfoWrapper,
-  LandCard
+  LandCard,
+  CopyRight
 };

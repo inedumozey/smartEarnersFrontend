@@ -1,7 +1,5 @@
-import React from 'react'
+import UserManual from "../components/public/userManual/UserManual.jsx"
 
 export default function userManual() {
-  return (
-    <div>How it works page in main Layout</div>
-  )
+  return <UserManual />
 }

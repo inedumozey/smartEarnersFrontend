@@ -1,13 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
-import authReducer from '../components/auth/redux/auth';
-import configReducer from '../components/config/redux/config';
-import plansReducer from '../components/plans/redux/plans';
+import authReducer from './auth/auth';
+import configReducer from './config/config';
+import plansReducer from './investmentPlans/investmentPlans';
+import testimonialReducer from './testimonials/testimonials';
 
 // redux store
 export const store = configureStore({
     reducer: {
         auth: authReducer,
         config: configReducer,
-        plans: plansReducer
+        plans: plansReducer,
+        testimonial: testimonialReducer,
     }
 })

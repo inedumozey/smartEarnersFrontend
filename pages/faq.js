@@ -1,7 +1,5 @@
-import React from 'react'
+import Faq from "../components/public/faq/Faq"
 
 export default function faq() {
-  return (
-    <div>faq</div>
-  )
+  return <Faq />
 }
