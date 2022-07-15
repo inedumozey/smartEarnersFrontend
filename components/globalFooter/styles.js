@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 const GlobalFooter = styled.footer`
     background: linear-gradient(to bottom, #000000, #191b1e, #181717, #000000);
-    margin-bottom: ${({isMobile})=>!isMobile ? '60px' : '0px'};
+    margin-bottom: ${({isMobile})=>isMobile ? '60px' : '0px'};
     
     .top{
         display: grid;
