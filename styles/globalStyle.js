@@ -156,6 +156,7 @@ const ToggleBtn = styled.div`
   border-radius: 5px;
   background: ${({toggleState})=>toggleState ? '#000' : '#fff'}
 `
+
 const SectionWrapper = styled.div`
   width: 100%;
   display: flex;
@@ -184,7 +185,6 @@ const SectionSubTitle = styled.h4`
 `
 const SectionText= styled.div`
   line-height: 2rem;
-  
 `
 
 const Button = styled.button`
@@ -199,7 +199,6 @@ const Button = styled.button`
   background: var(--bright-color);
   box-shadow: 1px 1px 2px #aaa, -1px -1px 2px #aaa;
 `
-
 
 const MainLayoutStyle = styled.div`
   width: 100vw;

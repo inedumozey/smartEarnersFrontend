@@ -128,7 +128,7 @@ export default function Header_() {
         {/* Check viewing browser */}
 
         {
-            isMobile ?
+            !isMobile ?
             (
                 // mobile view
                 <>
@@ -211,10 +211,8 @@ export default function Header_() {
                         </div>
 
                         {/* current page name */}
-                        <div className="col3">
-                            <div className={`${activeP ? 'activeU col3 current-page-name' : 'col3 current-page-name'}`}>
-                                Profile
-                            </div>
+                        <div onClick={()=>router.push(`/${currentPageName.url}`)} className='col3 current-page-name'>
+                            {currentPageName.link}
                         </div>
                     </div>
                     

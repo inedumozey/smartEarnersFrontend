@@ -121,8 +121,8 @@ const Header = styled.div`
         }
 
         .link{
-            margin-top: -4px;
-            font-size: .6rem;
+            margin-top: 0px;
+            font-size: .65rem;
         }
 
         .bottom-link {
