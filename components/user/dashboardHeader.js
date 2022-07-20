@@ -1,27 +1,31 @@
+import React, { useState} from 'react'
 import styled from 'styled-components'
+import GppGoodIcon from '@mui/icons-material/GppGood'
 
+const DashboardHeader = () => {
+    const [isVerified, setIsVerified ] = useState(true)
+  return (
+    <StyledDashboardHeader className="user-bio">
+        <section className="user-info">
+                  
+                  <span><h3 className="user-avatar">R</h3> <b>Ramond Murphy &nbsp;{ isVerified ? <GppGoodIcon fontSize="small"/>: null} </b> </span>
+                  
+                  <p>Current Balance &nbsp;<b> 2000 SEC </b></p> 
+              
+        </section> 
 
-export const ProfileContainer = styled.div`
-        width: 100%;
-        height: 100vh;
-        margin: 0px;
-        /* background: #00415d30; */
-        color: #00415d;
-        /* border: 2px solid transparent; */
-        
+    </StyledDashboardHeader>
+  )
+}
 
-        .central-column{
-            width: 100%;
-            height: 150px;
-            background: whitesmoke;
-            margin: 0px auto;
-            border-radius: 4px;
-
-            .user-bio{
-                height: 100%;
+const StyledDashboardHeader = styled.span`
+  
+                width: 100%;
+                height: 150px;
                 display: flex;
                 align-items: stretch;
                 justify-content: space-between;
+                background: whitesmoke;
 
                 .user-avatar{
                     width: 100px;
@@ -36,9 +40,7 @@ export const ProfileContainer = styled.div`
                     font-size: 3rem;
                     font-weight: 400;
                     border: 2px solid var(--bright-color);
-                    /* position: fixed;
-                    top: 150px;
-                    left: 150px; */
+                  
                 }
 
                 .user-info{
@@ -66,7 +68,7 @@ export const ProfileContainer = styled.div`
                         }
                         
                     }
-                    /* padding: 50px 70px; */
+                
                     p{
                         font-size: 1rem;
                         b{
@@ -75,43 +77,7 @@ export const ProfileContainer = styled.div`
                     }
                    
                 }
-            }
-        }
-
-        .central-column-second{
-                width: 80%;
-                height: fit-content;
-                display: flex;
-                align-items: center;
-                margin: 80px auto;
-                border-radius: 4px;
-                
-                .container{
-                    width: 74%;
-                    margin: 5px auto;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    h3 {
-                        padding: 15px 0;
-                        font-weight: 600;
-                        font-size: 1.3rem;
-                       
-                    } 
-
-                    span p{
-                        margin: 13px 0;
-                        b{
-                            font-size: 1.1rem;
-                            font-weight: 400;
-                        }
-                    }
-                   
-
-                  
-        }
-
-   
-    }   
 
 `
+
+export default DashboardHeader

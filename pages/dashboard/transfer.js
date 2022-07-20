@@ -1,6 +1,9 @@
+import Transfer from '../../components/user/transfer'
 
 export default function transfer() {
   return (
-    <div>Transfer Page in Dashboard</div>
+    <Transfer />
   )
 }
+
+
